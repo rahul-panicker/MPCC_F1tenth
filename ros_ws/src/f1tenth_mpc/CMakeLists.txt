@@ -94,7 +94,7 @@ if(DEFINED CATKIN_DEVEL_PREFIX)
       get_filename_component(_node_name ${_node_file} NAME_WE)
       add_executable(${_node_name} ${_node_file})
       target_link_libraries(${_node_name} ${LIBS})
-      add_dependencies(${_node_name} f1tenth_simulator_generate_messages_cpp)
+      add_dependencies(${_node_name} f1tenth_mpc_generate_messages_cpp)
   endforeach()
 
   # Install the library
