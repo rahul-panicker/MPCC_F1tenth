@@ -1,0 +1,6 @@
+image: RST_Hallway.png
+resolution: 0.008
+origin: [-6.716, -12.492, 0.0] # [-6.716, -6.492, 0.0] # [0.0, 0.0, 0.0]  
+occupied_thresh: 0.65
+free_thresh: 0.196
+negate: 0

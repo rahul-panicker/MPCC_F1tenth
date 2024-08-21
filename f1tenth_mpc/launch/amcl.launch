@@ -1,0 +1,23 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf2_map2odom" required="true" args="0 0 0 0 0 0 map odom"/>
+
+    <node pkg="tf2_ros" name="base_frame_to_laser" type="static_transform_publisher" 
+        args="0.0 0.0 0.0 0.0 0.0 0.0 base_link laser"/>
+    
+    
+    <!--<param name="/use_sim_time" value="true" />-->
+ 
+    <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(find f1tenth_mpc)/maps/rst_track.yaml" /> 
+
+    <node pkg="amcl" name="amcl" type="amcl" output="screen">
+        <param name="use_map_topic" value="true"/>
+        <param name="odom_frame_id" value="odom"/>
+        <param name="odom_model_type" value="diff"/>
+        <param name="base_frame_id" value="base_link"/>
+        <param name="global_frame_id" value="map"/>
+        <param name="tf_broadcast" value="true"/>
+        <param name="initial_pose_x" value="0.0"/>
+        <param name="initial_pose_y" value="0.0"/>
+        <param name="initial_pose_a" value="0.0"/>
+    </node>
+</launch>
